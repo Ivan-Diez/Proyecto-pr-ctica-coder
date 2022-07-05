@@ -43,6 +43,7 @@ ul {
 .header__content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     /* ancho máximo del contenedor (div) */
     /* margin primer valor arriba y abajo, segundo valor costados / auto acomoda segun el espacio del contenedor padre */
 }
@@ -51,18 +52,50 @@ ul {
     color: #22c55e;
 }
 
+/* pseudoelementos */
+.content__title:hover::after {
+    /* propiedad obligatoria */
+    content: "Inicio";
+    margin-left: 8px;
+    font-size: 15px;
+    color: #e2e8f0;
+}
+
 .content__navbar {
     display: flex;
-
+    align-items: center;
 }
 
 .content__navbar li {
     margin: 0 15px;
+    transition: transform 0.3s;
 }
+
+/* first-child: aplica estilos al primer elemento hermano */
+/* nth-child */
+/* odd: impares */
+/* even: pares */
+/* mediante un valor numérico, podemos afectar alguno de los hermanos */
+
+.content__navbar li:last-child {
+    border: 1px solid #22c55e;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.content__navbar li:active {
+    transform: scale(0.9);
+}
+
 
 .content__navbar li a {
     color: #e2e8f0;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+.content__navbar li a:hover {
+    color: #22c55e;
 }
 
 /* HERO */
@@ -191,9 +224,66 @@ ul {
     /* column-gap: espaciar horizontalmente */
 }
 
+/* FOOTER */
+
+.footer {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    padding: 50px 20px;
+    margin-top: 50px;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.footer__grid h4 {
+    color: #22c55e;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.footer__grid-list li {
+    margin: 10px 0;
+}
+
+.footer__grid-list li a {
+    color: #e2e8f0;
+    transition: color 0.3s;
+}
+
+.footer__grid-list li a:hover {
+    color: #22c55e;
+}
+
+.footer__rrss {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer__rrss a {
+    color: #e2e8f0;
+    font-size: 30px;
+    transition: color 0.3s;
+}
+
+.footer__rrss a:hover {
+    color: #22c55e;
+}
+
+
+
+/* MOBILE LAST */
 @media (max-width: 992px) {
     .courses__grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .hero__grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -205,6 +295,11 @@ ul {
     .content__navbar {
         display: none;
     }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+    }
 }
+
 
 
